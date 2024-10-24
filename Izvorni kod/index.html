@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzivo prikaz vlaznosti vazduha</title>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+    <script src="app.js?v=1.01"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+            color: #333;
+            background-image: url('rode.jpg');
+            background-repeat: repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #chart-button {
+        font-family: "Montserrat", sans-serif;
+        border-radius: 5px;
+        font-size: 18px;
+        background-color: #474747;
+        color: rgb(255, 255, 255);
+        padding: 3px 15px;
+        margin-left: 0; 
+        margin-right: auto;
+        }
+
+        #logout-button {
+        font-family: "Montserrat", sans-serif;
+        border-radius: 5px;
+        font-size: 18px;
+        background-color: #474747;
+        color: rgb(255, 255, 255);
+        padding: 3px 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            font-size: 3em;
+            text-shadow: 1px 1px 0 #aaa, 2px 2px 0 #999, 3px 3px 0 #888,
+                         4px 4px 0 #777, 5px 5px 0 #666;
+        }
+
+        #data-display {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 20px;
+            width: 300px;
+            margin-left: 0; 
+            margin-right: auto;
+        }
+
+
+        .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        }
+
+        .data-display {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        .bulb-container {
+            width: 60px; /* Width of bulb container */
+            height: 120px; /* Height of bulb container */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            background: url('wood.jpg') no-repeat center center; /* Wood texture */
+            background-size: cover;
+            border-radius: 10px; /* Rounded corners */
+            border: 1px solid #ccc; /* Border around the container */
+            padding: 10px; /* Padding inside the container */
+            margin-left: 20px; /* Margin to separate from data display */
+        }
+
+        .bulb {
+            width: 40px; /* Diameter of bulb */
+            height: 40px; /* Diameter of bulb */
+            border-radius: 50%; /* Make it a circle */
+            background: radial-gradient(circle at 20% 20%, #f5f5f5, #d9d9d9); /* Gradient for a glassy effect */
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1), /* Inner shadow */
+                        0 2px 4px rgba(0, 0, 0, 0.2); /* Outer shadow for 3D effect */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bulb::before {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); /* Highlight effect */
+            top: 10%;
+            left: 10%;
+        }
+
+        .bulb::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8); /* Reflective spot */
+            top: 20%;
+            left: 20%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="chart-button" onclick="openChartPage()">Chart</button>
+        <button id="logout-button" onclick="openLogutPage()">Logout</button>
+    </div>
+    <h1>Trenutna vlaznost vazduha u prostoriji</h1>
+    <div id="container">
+        
+    </div>
+</body>
+<script>
+    function openChartPage() {
+      window.location.href = "chart.html";
+    }
+    function openLogutPage() {
+      window.location.href = "login.html";
+    }
+  </script>
+  
+</html>
